@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BekEmlak Login Page</title>
+  <link rel="stylesheet" href="assets/loginPageStyle.css">
+  <script>
+    window.onload = function() {
+      document.getElementById("loginButton").addEventListener("click", function() {
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/login", true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+              alert("Giriş başarılı!")
+              window.location.href = "index.html";
+            } else {
+
+              alert(xhr.responseText);
+            }
+          }
+        };
+        var data = JSON.stringify({
+          email: email,
+          password: password
+        });
+        xhr.send(data);
+      });
+    };
+  </script>
+</head>
+<body>
+<div class="ustKutu"></div>
+
+<div class="loginKutusu">
+  <h2 style="text-align: center;padding-top: 50px;font-family: 'Comic Sans MS';font-size: 50px;padding-bottom: 20%">Üye Girişi</h2>
+  <div>
+    <label class="email" for="email">E-posta: </label>
+    <input type="email" id="email" name="email" required>
+
+    <br>
+    <br>
+
+    <label class="password" for="password">Şifre: </label>
+    <input type="password" id="password" name="password" required>
+
+    <br>
+    <br>
+
+    <a href="#" id="loginButton" class="loginButton" >Giriş Yap</a>
+
+    <div/>
+    <br>
+
+    <a href="forgotPassword.html" class="forgotPassword" >Şifremi Unuttum</a>
+
+    <h2 style="text-align: center;font-family: 'Comic Sans MS';margin-top: 10%" >Üye değil misiniz ?</h2>
+
+    <a href="registerPage.html" class="register" >Hemen üye olun</a>
+  </div>
+</div>
+</body>
+</html>

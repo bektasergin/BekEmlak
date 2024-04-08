@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Error Page</title>
+    <link rel="stylesheet" href="assets/errorPageStyle.css">
+
+</head>
+<body>
+    <div class="topBox"></div>
+    <div class="errorBox">
+        <h1 style="font-family: Comic Sans MS;
+        font-size: 30px;" >Email hatalı veya boş bıraktınız, lütfen tekrar deneyiniz</h1>
+        <button class="backButton" type="submit" onclick="redirectToForgotPasswordPage()">Geri dön</button>
+    </div>
+<script>
+    function redirectToForgotPasswordPage() {
+        window.location.href = 'forgotPassword.html';
+    }
+</script>
+</body>
+</html>

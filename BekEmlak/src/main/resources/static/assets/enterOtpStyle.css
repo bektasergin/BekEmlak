@@ -1,0 +1,56 @@
+body{
+    background-color: #ecf39e;
+}
+
+.topBox {
+    background-color: #4f772d;
+    width: 106%;
+    height: 300px;
+    margin-top: -100px;
+    margin-left: -100px;
+}
+
+.panel-body{
+    background-color: #90a955;
+    border-radius: 20px;
+    margin-left: 36%;
+    margin-top: 10%;
+    margin-bottom: 20%;
+    padding: 5%;
+    width: 400px;
+}
+
+.form-control{
+    font-size: 25px;
+    width: 100%;
+}
+
+.resetButton{
+    margin-left: 5%;
+    margin-top: 5%;
+    border-radius: 20px;
+    font-family: "Comic Sans MS";
+    font-size: 25px;
+    font-weight: bold;
+    background-color: #ecf39e;
+    color: black;
+    text-decoration: none;
+}
+
+.resetButton:hover {
+    background-color: #4f772d;
+    color:red;
+}
+
+input[type="number"]{
+    border: 2px solid green;
+    border-radius: 10px;
+    padding: 10px;
+    outline: none;
+    width: 80%;
+}
+
+input[type="number"]:focus {
+    border-color: aquamarine;
+    box-shadow: 0 0 5px aquamarine;
+}
