@@ -1,0 +1,120 @@
+body{
+    background-color: #ecf39e;
+}
+
+.anaLoginButton,
+.anaRegisterButton {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 50px;
+    background-color: #90a955;
+    color: black;
+    transition: background-color 0.3s ease;
+    font-family: "Comic Sans MS";
+    text-decoration: none;
+}
+
+.anaLoginButton:hover,
+.anaRegisterButton:hover {
+    background-color: #ecf39e;
+}
+
+
+
+.topBox {
+    background-color: #4f772d;
+    width: 106%;
+    height: 300px;
+    margin-top: -100px;
+    margin-left: -100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttons{
+    margin-left: 60%;
+    margin-top: 100px;
+}
+
+.anaLogoutButton:hover{
+    background-color: red;
+}
+
+.anaLogoutButton{
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 50px;
+    background-color: darkred;
+    color: white;
+    transition: background-color 0.3s ease;
+    font-family: "Comic Sans MS";
+    text-decoration: none;
+    margin-left: 100px;
+    margin-top: 50px;
+
+}
+
+.userName{
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 35px;
+    background-color: darkred;
+    color: black;
+    transition: background-color 0.3s ease;
+    font-family: "Comic Sans MS";
+    text-decoration: none;
+    display: flex;
+    background-color: white;
+    width: 400px;
+    margin-top: 30px;
+}
+
+
+
+.logo1{
+    width: 200px;
+    margin-left: 1000px;
+    margin-top: 90px;
+    margin-right: 500px;
+    border-radius: 20px;
+}
+
+.logo{
+    width: 200px;
+    margin-top: 90px;
+    margin-right: -60px;
+    border-radius: 20px;
+}
+
+.homes{
+    font-family: "Comic Sans MS";
+    margin-left: 200px;
+    margin-top: 100px;
+    font-size: 70px;
+    background-color: #90a955;
+    width: 10%;
+    text-align: center;
+}
+
+.homeBox{
+    width: 90%;
+    height: 500px;
+    background-color: #90a955;
+    margin-left: 150px;
+}
+
+.konteynir{
+    display: flex;
+}
+
+.a:hover{
+    background-color: #4f772d;
+}
+
+.a{
+    height: 80px;background-color: #90a955;
+    color: black;
+    transition: background-color 0.3s ease;border: 1px solid #ccc;
+    border-radius: 5px;text-decoration: none;margin-top: 120px;font-size: 50px;font-family: 'Comic Sans MS';
+}

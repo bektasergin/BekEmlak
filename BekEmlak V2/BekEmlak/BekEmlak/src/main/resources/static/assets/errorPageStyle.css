@@ -1,0 +1,44 @@
+body{
+    background-color: #ecf39e;
+}
+
+.topBox {
+    background-color: #4f772d;
+    width: 106%;
+    height: 300px;
+    margin-top: -100px;
+    margin-left: -100px;
+}
+
+.logo{
+    width: 200px;
+    margin-left: 45%;
+    margin-top: 95px;
+    border-radius: 20px;
+}
+
+.errorBox{
+    background-color: #90a955;
+    border-radius: 20px;
+    margin-left: 36%;
+    margin-top: 10%;
+    margin-bottom: 20%;
+    padding: 5%;
+    width: 400px;
+}
+
+.backButton{
+    margin-left: 50%;
+    border-radius: 20px;
+    font-family: "Comic Sans MS";
+    font-size: 25px;
+    font-weight: bold;
+    background-color: #ecf39e;
+    color: black;
+    text-decoration: none;
+}
+
+.backButton:hover {
+    background-color: #4f772d;
+    color:red;
+}
