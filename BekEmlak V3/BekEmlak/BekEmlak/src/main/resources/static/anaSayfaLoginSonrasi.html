@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>BekEmlak - HomePage</title>
+    <link rel="stylesheet" href="assets/anaSayfaStyle.css">
+
+    <script>
+
+        function ilanGetir() {
+            var request = new XMLHttpRequest();
+            request.open("GET", "http://localhost:8080/ilan", true);
+            request.onreadystatechange = function () {
+                if (request.readyState === XMLHttpRequest.DONE && request.status === 200) {
+                    var ilanlar = JSON.parse(request.responseText);
+                    var ilanlarHTML = "";
+
+                    ilanlar.forEach(function (ilan) {
+                        ilanlarHTML += "<div class='ilan'>";
+                        ilanlarHTML += "<img src='" + ilan.image + "' alt='İlan Resmi'>";
+                        ilanlarHTML += "<p style='margin-top: 50px' >İsim: " + ilan.name + "</p>";
+                        ilanlarHTML += "<p>Fiyat: " + ilan.price + "</p>";
+                        ilanlarHTML += "<p>Konum: " + ilan.location + "</p>";
+                        ilanlarHTML += "<p>Açıklama: " + ilan.explanation + "</p>";
+                        ilanlarHTML += "<p style='margin-bottom: 50px' >Telefon: " + ilan.phone + "</p>";
+                        ilanlarHTML += "</div>";
+                    });
+
+                    document.getElementById("ilanlarContainer").innerHTML = ilanlarHTML;
+                }
+            };
+            request.send();
+        }
+
+        // Sayfa yüklendiğinde ilanları otomatik olarak getir
+        window.onload = ilanGetir();
+
+        window.onload = function() {
+            var userName = sessionStorage.getItem('userName');
+            document.getElementById('userName').innerText = "Hoşgeldin, " + userName + " !";
+
+        };
+
+
+
+    </script>
+
+</head>
+<body>
+
+    <div class="topBox">
+        <img class="logo1" src="assets/Logo.jpg">
+            <div id="userName" class="userName"></div>
+            <a class="anaLogoutButton" href="index.html">Çıkış</a>
+
+    </div>
+
+    <div class="konteynir">
+        <h1 class="homes" >İlanlar</h1>
+        <img style="width: 120px;height: 100px;margin-top: 100px;margin-left: 50%" src="assets/png-transparent-paper-notebook-computer-icons-pen-contact-information-angle-pencil-text.png">
+        <a class="islem" href="ilanEkle.html">İlan Ekle</a>
+        <a class="islem" href="ilanSilme.html" >İlan Sil</a>
+        <a href="ilanGuncelle.html" class="islem" >İlan Güncelle</a>
+
+    </div>
+    <h1 class="homeBox" id="ilanlarContainer">.</h1>
+
+</body>
+</html>
+

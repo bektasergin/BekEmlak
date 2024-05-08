@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BekEmlak - İlan Güncelleme Sayfası</title>
+    <link rel="stylesheet" href="assets/ilanGuncelleStyle.css">
+</head>
+<body>
+<div class="topBox">
+    <img class="logo" src="assets/Logo.jpg">
+</div>
+
+<div class="guncellemeBox">
+    <h1 style="margin-bottom: 50px;text-align: center;font-family: 'Comic Sans MS';font-size: 40px">Lütfen güncellemek istediğiniz ilanın önce <br> ismini sonra da yeni bilgilerini giriniz!</h1>
+    <form id="updateForm">
+        <div class="inputs">
+            <div class="input-group">
+                <label class="oldName" for="oldName">İlanın İsmi:</label>
+                <input type="text" id="oldName" name="oldName">
+            </div>
+            <br>
+            <div class="input-group">
+                <label class="newname" for="newName">İlanın Yeni İsmi:</label>
+                <input type="text" id="newName" name="newName">
+            </div>
+            <br>
+            <div class="input-group">
+                <label class="price" for="price">İlanın Yeni Ücreti:</label>
+                <input type="number" id="price" name="price">
+            </div>
+            <br>
+            <div class="input-group">
+                <label class="location" for="location">İlanın Yeni Konumu:</label>
+                <input type="text" id="location" name="location">
+            </div>
+            <br>
+            <div class="input-group">
+                <label class="explanation" for="explanation">İlanın Yeni Açıklaması:</label>
+                <input type="text" id="explanation" name="explanation">
+            </div>
+            <br>
+            <div class="input-group">
+                <label class="image" for="image">İlanın Yeni Resimleri:</label>
+                <input type="text" id="image" name="image">
+            </div>
+            <br>
+            <div class="input-group">
+                <label class="phone" for="phone">İlanın Yeni Numarası:</label>
+                <input type="text" id="phone" name="phone">
+            </div>
+            <br>
+        </div>
+        <button class="updatebutton" onclick="update()" type="submit">İlanı Güncelle</button>
+    </form>
+</div>
+
+<script>
+    function update() {
+        document.getElementById("updateForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const oldName = document.getElementById("oldName").value;
+            const newName = document.getElementById("newName").value;
+            const price = document.getElementById("price").value;
+            const location = document.getElementById("location").value;
+            const explanation = document.getElementById("explanation").value;
+            const image = document.getElementById("image").value;
+            const phone = document.getElementById("phone").value;
+
+            if (!oldName || !newName || !price || !location || !explanation || !image || !phone) {
+                alert("Lütfen boş bıraktığınız yerleri doldurunuz!")
+                return;
+            }
+
+            const updatedAnnouncement = {
+                name: newName,
+                price: price,
+                location: location,
+                explanation: explanation,
+                image: image,
+                phone: phone
+            };
+
+            fetch(`/update/${oldName}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(updatedAnnouncement)
+            })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    throw new Error('Network response was not ok.');
+                })
+                .then(data => {
+                    alert("İlanınız başarıyla güncellendi!")
+                    window.location.href = "anaSayfaLoginSonrasi.html"
+                })
+                .catch(error => {
+                    alert("İlanınız güncellenirken bir hatayla karşılaşıldı lütfen tekrar deneyiniz!")
+                    console.error('Error updating announcement:', error);
+                });
+        })
+    }
+</script>
+
+</body>
+</html>

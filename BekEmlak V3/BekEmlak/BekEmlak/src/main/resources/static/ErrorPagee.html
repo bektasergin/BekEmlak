@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Error Page</title>
+  <link rel="stylesheet" href="assets/ErrorPageeStyle.css">
+
+</head>
+<body>
+<div class="topBox"></div>
+<div class="errorBox">
+  <h1 style="font-family: Comic Sans MS;
+        font-size: 30px;" >Kodu yanlış girdiniz lütfen tekrar deneyin!</h1>
+  <button class="backButton" type="submit" onclick="redirectToEnterOtpPage()">Geri dön</button>
+</div>
+<script>
+  function redirectToEnterOtpPage() {
+    window.location.href = 'EnterOtp.html';
+  }
+</script>
+</body>
+</html>

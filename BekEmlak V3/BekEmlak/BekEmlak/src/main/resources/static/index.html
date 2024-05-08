@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>BekEmlak - Anasayfa</title>
+    <link rel="stylesheet" href="assets/anaSayfaStyle.css">
+</head>
+<body>
+<div class="topBox">
+    <img class="logo" src="assets/Logo.jpg">
+
+    <div class="buttons">
+        <a class="anaLoginButton" href="loginPage.html">Giriş Yap</a>
+        <a style="margin-left: 10px" class="anaRegisterButton" href="registerPage.html">Kayıt Ol</a>
+    </div>
+</div>
+
+<h1 class="homes">İlanlar</h1>
+
+<div class="homeBox" id="ilanlarContainer">
+
+</div>
+
+<script>
+    function ilanGetir() {
+        var request = new XMLHttpRequest();
+        request.open("GET", "http://localhost:8080/ilan", true);
+        request.onreadystatechange = function () {
+            if (request.readyState === XMLHttpRequest.DONE && request.status === 200) {
+                var ilanlar = JSON.parse(request.responseText);
+                var ilanlarHTML = "";
+
+                ilanlar.forEach(function (ilan) {
+                    ilanlarHTML += "<div class='ilan'>";
+                    ilanlarHTML += "<img src='" + ilan.image + "' alt='İlan Resmi'>";
+                    ilanlarHTML += "<p style='margin-top: 50px' >İsim: " + ilan.name + "</p>";
+                    ilanlarHTML += "<p>Fiyat: " + ilan.price + "</p>";
+                    ilanlarHTML += "<p>Konum: " + ilan.location + "</p>";
+                    ilanlarHTML += "<p>Açıklama: " + ilan.explanation + "</p>";
+                    ilanlarHTML += "<p style='margin-bottom: 50px' >Telefon: " + ilan.phone + "</p>";
+                    ilanlarHTML += "</div>";
+                });
+
+                document.getElementById("ilanlarContainer").innerHTML = ilanlarHTML;
+            }
+        };
+        request.send();
+    }
+
+    // Sayfa yüklendiğinde ilanları otomatik olarak getir
+    window.onload = ilanGetir();
+</script>
+
+</body>
+</html>
