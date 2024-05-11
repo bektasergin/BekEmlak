@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BekEmlak - İlan Ekleme</title>
+    <link rel="stylesheet" href="assets/ilanEkleStyle.css">
+</head>
+<body>
+<div class="topBox">
+    <img class="logo" src="assets/Logo.jpg">
+</div>
+
+<div class="ilanBox">
+    <h1 STYLE="font-size: 50px;font-family: 'Comic Sans MS';margin-left: 8%;margin-bottom: 20%"><b>İLAN EKLEYİN :)</b>
+    </h1>
+    <div class="inputs">
+        <label class="name" for="name">İlan ismi: </label>
+        <input type="text" id="name" required>
+        <br>
+        <br>
+        <label class="price" for="price">İlanın Ücreti: </label>
+        <input type="number" id="price" required>
+        <br>
+        <br>
+        <label class="location" for="location">İlan Konumu: </label>
+        <input type="text" id="location" required>
+        <br>
+        <br>
+        <label class="explanation" for="explanation">İlan açıklaması: </label>
+        <input type="text" id="explanation" required>
+        <br>
+        <br>
+        <label class="image" for="image">İlan fotoğrafları: </label>
+        <input type="file" id="image" accept="image/*" required>
+        <br>
+        <br>
+        <label class="phone" for="phone">İlan telefonu: </label>
+        <input type="text" id="phone" required>
+    </div>
+    <br>
+    <br>
+    <a class="announcementRegister" onclick="addAnnouncement()">İlan Ekle</a>
+</div>
+
+<script>
+    function addAnnouncement() {
+        const name = document.getElementById("name").value;
+        const price = document.getElementById("price").value;
+        const location = document.getElementById("location").value;
+        const explanation = document.getElementById("explanation").value;
+        const image = document.getElementById("image").files[0]; // Get the selected file
+        const phone = document.getElementById("phone").value;
+
+        if (!name || !price || !location || !explanation || !image || !phone) {
+            alert("Lütfen boş bıraktığınız yerleri doldurun!")
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append("name", name);
+        formData.append("price", price);
+        formData.append("location", location);
+        formData.append("explanation", explanation);
+        formData.append("image", image); // Append the file to FormData
+        formData.append("phone", phone);
+
+        var request = new XMLHttpRequest();
+        request.open("POST", "http://localhost:8080/addAnnouncement", true);
+        request.onreadystatechange = function () {
+            if (request.readyState === XMLHttpRequest.DONE) {
+                if (request.status === 200) {
+                    alert(request.responseText);
+                    window.location.href = "anaSayfaLoginSonrasi.html";
+                } else if (request.status === 409) {
+                    alert("Bilgilerinizi kontrol ediniz!");
+                }
+            }
+        };
+        request.send(formData); // Send FormData instead of JSON
+    }
+</script>
+
+</body>
+</html>
+
+

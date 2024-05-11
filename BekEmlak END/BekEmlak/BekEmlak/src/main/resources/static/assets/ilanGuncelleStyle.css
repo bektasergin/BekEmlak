@@ -1,0 +1,179 @@
+body{
+    background-color: #ecf39e;
+}
+
+.topBox {
+    background-color: #4f772d;
+    width: 106%;
+    height: 300px;
+    margin-top: -100px;
+    margin-left: -100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo{
+    width: 200px;
+    margin-left: 50px;
+    margin-top: 90px;
+    border-radius: 20px;
+}
+
+.guncellemeBox{
+    padding-top: 80px;
+    background-color: #90a955;
+    border-radius: 20px;
+    margin-left: 20%;
+    margin-top: 10%;
+    margin-bottom: 20%;
+    width: 60%;
+    height: 850px;
+}
+
+.oldName{
+    font-family: "Comic Sans MS", cursive;
+    font-size: 35px;
+    font-weight: bold;
+    color: black;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    padding-left: 10%;
+    position: relative;
+}
+
+.newname{
+    font-family: "Comic Sans MS", cursive;
+    font-size: 35px;
+    font-weight: bold;
+    color: black;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    padding-left: 10%;
+    position: relative;
+}
+
+.price{
+    font-family: "Comic Sans MS", cursive;
+    font-size: 35px;
+    font-weight: bold;
+    color: black;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    padding-left: 10%;
+    position: relative;
+}
+
+.location{
+    font-family: "Comic Sans MS", cursive;
+    font-size: 35px;
+    font-weight: bold;
+    color: black;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    padding-left: 10%;
+    position: relative;
+}
+
+.explanation{
+    font-family: "Comic Sans MS", cursive;
+    font-size: 35px;
+    font-weight: bold;
+    color: black;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    padding-left: 10%;
+    position: relative;
+}
+
+.image{
+    font-family: "Comic Sans MS", cursive;
+    font-size: 35px;
+    font-weight: bold;
+    color: black;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    padding-left: 10%;
+    position: relative;
+}
+
+.phone{
+    font-family: "Comic Sans MS", cursive;
+    font-size: 35px;
+    font-weight: bold;
+    color: black;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    padding-left: 10%;
+    position: relative;
+}
+
+input[type="text"] {
+    border: 2px solid green;
+    border-radius: 10px;
+    outline: none;
+    width: 30%;
+    font-size: 35px;
+
+}
+input[type="text"]:focus {
+    border-color: aquamarine;
+    box-shadow: 0 0 5px aquamarine;
+}
+
+input[type="number"] {
+    border: 2px solid green;
+    border-radius: 10px;
+    outline: none;
+    width: 30%;
+    font-size: 35px;
+
+}
+input[type="number"]:focus {
+    border-color: aquamarine;
+    box-shadow: 0 0 5px aquamarine;
+}
+
+input[type="file"] {
+    cursor: pointer !Important;
+    font: 500 14px sans-serif;
+    color:black;
+    width: 1000px;
+    margin-left: 50px;
+}
+input[type="file"]::-webkit-file-upload-button
+{
+    font: 300 14px  sans-serif;
+    background: #ecf39e;
+    border: 0;
+    padding: 12px 25px;
+    margin-left: 50px;
+    margin-top: 20px;
+    cursor: pointer;
+    color: black;
+    text-transform: uppercase;
+}
+
+input[type="file"]::-ms-browse {
+    font: 300 14px 'Roboto', sans-serif;
+    background: #ecf39e;
+    border: 0;
+    padding: 12px 25px;
+    cursor: pointer;
+    color: black;
+    text-transform: uppercase;
+}
+
+.input-group{
+    margin-left: 10%;
+}
+
+.updatebutton{
+    margin-left: 45%;
+    margin-top: 30px;
+    font-family: "Comic Sans MS";
+    font-size: 25px;
+    font-weight: bold;
+    background-color: #ecf39e;
+    color: black;
+    text-decoration: none;
+    font-size: 40px;
+}
+
+.updatebutton:hover{
+    background-color: #4f772d;
+    color:red;
+}

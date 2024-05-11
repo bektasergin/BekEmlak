@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BekEmlak - İlan Silme Sayfası</title>
+    <link rel="stylesheet" href="assets/ilanSilmeStyle.css">
+</head>
+<body>
+<div class="topBox">
+    <img class="logo" src="assets/Logo.jpg">
+</div>
+<div class="silmeBox" >
+    <h1 style="text-align: center;font-family: 'Comic Sans MS';font-size: 50px">Sileceğiniz ilanın adını yazınız :)</h1>
+    <input type="text" id="name" required placeholder="İlanın ismini giriniz!">
+    <a class="silmeButton" onclick="ilanSilme()">İlanı Sil</a>
+</div>
+
+<script>
+    function ilanSilme() {
+        var ilanAdi = document.getElementById("name").value;
+
+        if (!ilanAdi){
+            alert("İsim giriniz!")
+        }
+
+        // İstek yapılacak endpoint'in URL'si
+        var endpointURL = "/delete/" + encodeURIComponent(ilanAdi); // İlan adı URL'ye uygun hale getiriliyor
+
+        // HTTP DELETE isteği gönderme
+        fetch(endpointURL, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+                // Gerekirse diğer istek başlıklarını da burada belirtebilirsiniz
+            }
+        })
+            .then(response => {
+                if (response.ok) {
+                    // Başarılı yanıt durumunda kullanıcıya bilgi verme
+                    alert("İlan başarıyla silindi.");
+                    window.location.href = "anaSayfaLoginSonrasi.html";
+                } else {
+                    // Yanıt hatalı ise hata mesajını gösterme
+                    alert("İlan silinemedi. Hata: " + response.statusText);
+                }
+            })
+            .catch(error => {
+                // İstek gönderilirken ortaya çıkan hataları yakalama
+                alert("İstek gönderilirken bir hata oluştu: " + error.message);
+            });
+    }
+</script>
+</body>
+</html>

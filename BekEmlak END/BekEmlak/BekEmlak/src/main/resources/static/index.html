@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>BekEmlak - Anasayfa</title>
+    <link rel="stylesheet" href="assets/anaSayfaStyle.css">
+</head>
+<body>
+<div class="topBox">
+    <img class="logo" src="assets/Logo.jpg">
+
+    <div class="buttons">
+        <a class="anaLoginButton" href="loginPage.html">Giriş Yap</a>
+        <a style="margin-left: 10px" class="anaRegisterButton" href="registerPage.html">Kayıt Ol</a>
+    </div>
+</div>
+
+<h1 class="homes">İlanlar</h1>
+
+<div class="homeBox" id="ilanlarContainer">
+
+</div>
+
+<script>
+    function ilanGetir() {
+        var request = new XMLHttpRequest();
+        request.open("GET", "http://localhost:8080/ilan", true);
+        request.onreadystatechange = function () {
+            if (request.readyState === XMLHttpRequest.DONE && request.status === 200) {
+                var ilanlar = JSON.parse(request.responseText);
+                var ilanlarHTML = "";
+
+                ilanlar.forEach(function (ilan) {
+                    ilanlarHTML += "<div class='bilgiKutu'>";
+                    ilanlarHTML += "<img class='ilanFoto' src='data:image/jpeg;base64," + ilan.image + "' alt='İlan Resmi'>";
+                    ilanlarHTML += "<div class='ilan'>";
+                    ilanlarHTML += "<p style='margin-top: 50px' ><b>İsim:</b>" + ilan.name + "</p>";
+                    ilanlarHTML += "<p><b>Fiyat: </b>" + ilan.price + "</p>";
+                    ilanlarHTML += "<p><b>Konum: </b>" + ilan.location + "</p>";
+                    ilanlarHTML += "<p><b>Açıklama: </b>" + ilan.explanation + "</p>";
+                    ilanlarHTML += "<p style='margin-bottom: 50px' ><b>Telefon: </b>" + ilan.phone + "</p>";
+                    ilanlarHTML += "</div>";
+                    ilanlarHTML += "</div>";
+                });
+
+                document.getElementById("ilanlarContainer").innerHTML = ilanlarHTML;
+            }
+        };
+        request.send();
+    }
+
+    // Sayfa yüklendiğinde ilanları otomatik olarak getir
+    window.onload = ilanGetir();
+</script>
+
+</body>
+</html>
+
+
+
